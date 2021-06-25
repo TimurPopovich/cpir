@@ -5,5 +5,6 @@ html {
   padding: 0;
 }
  a{
-   list-style-type: none;
+   list-style-type: none !important;
+   color: #000 !important;
  }

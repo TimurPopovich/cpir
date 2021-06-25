@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../db/models/user.model");
 const Project = require('../db/models/project.model')
+const jwt = require('jsonwebtoken')
 
 router.post("/", async (req, res) => {
   try {
@@ -14,6 +15,11 @@ router.post("/", async (req, res) => {
       password,
       status: "engineer",
     });
+
+    const token = await jwt.sign({ id: user._id }, process.env.KEY, {
+      expiresIn: "5 days",
+    });
+
     await user.save();
 
     res.json({ massage: true });
@@ -46,10 +52,11 @@ router.put("/", async (req, res) => {
 
     // let fullDate = new Date(startDate);
     // let year = `${fullDate.getFullYear}/${fullDate.getMonth}/${fullDate.getDay}`
-    
+
     // console.log(year)
 
-    await Project.findOneAndUpdate({_id:projectId2}, {address,
+    await Project.findOneAndUpdate({ _id: projectId2 }, {
+      address,
       email,
       phone,
       name,
@@ -64,9 +71,10 @@ router.put("/", async (req, res) => {
       beamWater,
       otherDefects,
       recommendMonitoring,
-      recommendGeological})
-     
-      res.json('updated')
+      recommendGeological
+    })
+
+    res.json('updated')
   } catch (err) {
     console.log(err);
   }
