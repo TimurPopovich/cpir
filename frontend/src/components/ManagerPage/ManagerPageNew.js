@@ -21,10 +21,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "30px",
   },
   paper: {
-<<<<<<< HEAD
-    borderRadius:'10px 10px 0 0',
-=======
->>>>>>> 5d1ee9d7e0f5e9d9bc7bd5ba66c3fec18ae5c2f1
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
@@ -40,15 +36,9 @@ export default function CenteredGrid({ newProject, setNewProjects, setInWorkProj
       <Container className={classes.container}>
         <Grid container spacing={3}>
           <Grid item xs>
-<<<<<<< HEAD
-            <Typography className={classes.title} variant="h5" color="primary" gutterBottom>
+            <Typography className={classes.title} variant="h5" color="textSecondary" gutterBottom>
               Новые проекты
             </Typography>
-=======
-          <Typography className={classes.title} variant="h5" color="textSecondary" gutterBottom>
-          Новые проекты
-        </Typography>
->>>>>>> 5d1ee9d7e0f5e9d9bc7bd5ba66c3fec18ae5c2f1
             <Paper className={classes.paper}>{
               newProject.map((el) => <NewProject newProject={newProject} setInWorkProjects={setInWorkProjects} inWorkProjects={inWorkProjects} setNewProjects={setNewProjects} key={el._id} info={el} />
               )

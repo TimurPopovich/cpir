@@ -67,14 +67,9 @@ export default function SimpleCard({ info, setNewProjects, newProject, inWorkPro
         </Typography>
 
       </CardContent>
-<<<<<<< HEAD
       <CardActions className={classes.body}>
         <EngineersSelect userName={setName} initialName={name} />
         <Button variant={'contained'} onClick={handleChange} size="small">Передать в работу</Button>
-=======
-      <CardActions>
-        <Button variant="contained" color="primary" className={classes.btn} onClick={handleChange} size="small">Передать в работу</Button>
->>>>>>> 5d1ee9d7e0f5e9d9bc7bd5ba66c3fec18ae5c2f1
       </CardActions>
 
     </Card>
