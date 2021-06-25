@@ -16,11 +16,13 @@ router.post("/", async (req, res) => {
       status: "engineer",
     });
 
+    await user.save();
+
     const token = await jwt.sign({ id: user._id }, process.env.KEY, {
       expiresIn: "5 days",
     });
 
-    await user.save();
+    const update = await User.updateOne({ _id: user._id }, { token });
 
     res.json({ massage: true });
   } catch (err) {
