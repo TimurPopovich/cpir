@@ -20,7 +20,7 @@ const manager = require('./routes/manager')
 const mail = require('./routes/mail')
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT
 
 
 app.use(express.static(path.join(__dirname,'public','build')))
