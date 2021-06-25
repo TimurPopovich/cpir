@@ -10,7 +10,6 @@ import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
     margin: '8px 0 8px 0',
     border: "1px solid gray",
     cursor: "pointer",
@@ -28,6 +27,7 @@ const useStyles = makeStyles({
   body: {
     display: 'flex',
     justifyContent: 'center',
+    flexDirection:'column',
   },
   btn: {
     margin: "0 auto"
