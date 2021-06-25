@@ -7,6 +7,7 @@ export const loginThunk = (logInfo) => {
     })
       .then((res) => res.json())
       .then(data => {
+        console.log(data);
         if (data.message) {
           throw new Error(data.message)
         } else return data

@@ -45,7 +45,7 @@ useEffect(()=>{
           {
           allIngeener && allIngeener.map((option) => (
           <MenuItem  key={option._id} value={option.name}>
-            {option.name[0].toUpperCase() + option.name.slice(1) + " " + option?.surName[0].toUpperCase() + option?.surName.slice(1)}
+            {option?.name[0]?.toUpperCase() + option.name/.slice(1) + " " + option?.surName[0]?.toUpperCase() + option?.surName?.slice(1)}
           </MenuItem>
         ))}
         </TextField>
