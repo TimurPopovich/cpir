@@ -3,8 +3,6 @@ const path = require('path');
 const dotenv = require('dotenv');
 const cors = require('cors');
 require('./db/connect/connection')
-
-
 const signup = require('./routes/signup');
 const login = require('./routes/login');
 const beam = require('./routes/beam');
@@ -17,12 +15,12 @@ const user = require('./routes/user')
 const engineer = require('./routes/engineer')
 const manager = require('./routes/manager')
 const mail = require('./routes/mail')
+
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3333
 
-
-app.use(express.static(path.join(__dirname,'public','build')))
+app.use(express.static(path.join(__dirname,'frontend','build')))
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -39,6 +37,10 @@ app.use('/user', user)
 app.use('/engineer', engineer)
 app.use('/manager', manager)
 app.use('/mail', mail)
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname,'frontend','build', 'index.html'))
+})
 
 app.listen(port, () => {
   console.log(`Server run on port:${port}`)
