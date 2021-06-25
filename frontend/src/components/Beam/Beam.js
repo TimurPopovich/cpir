@@ -102,7 +102,9 @@ export default function ImgMediaCard() {
     let count = beamLength <= 6000 ? 30 : 48;
     console.log(def, count);
     setResult(def > count ? "Недопустимый прогиб" : "В пределах нормы");
-    setDeflection(Math.abs(def));
+    // setDeflection(Math.abs(def));
+    setDeflection(Math.abs((a + c) - b));
+
   }
 
   return (
