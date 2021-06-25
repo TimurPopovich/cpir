@@ -127,7 +127,7 @@ export default function Report({
 
   По результатам инструментального обследования здания:
   - Прогиб плит (балок) перекрытия: ${findProject?.beam[0]?.result} (${
-    findProject?.beam[0]?.deflection
+    findProject?.beam[0]?.deflection + "мм"
   }).
   - Вертикальное отклонение стен: ${findProject?.wall[0]?.conclusion}
   - Прочностные характеристики бетона соответствуют: ${
@@ -222,7 +222,7 @@ export default function Report({
                 <br />
                 ‎-‎ Прогиб плит (балок) перекрытия:{" "}
                 {findProject?.beam[0]?.result} (
-                {findProject?.beam[0]?.deflection}).
+                {findProject?.beam[0]?.deflection})мм.
                 <br />
                 ‎-‎ Вертикальное отклонение стен:{" "}
                 {findProject?.wall[0]?.conclusion}‎<br />

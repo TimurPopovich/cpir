@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     margin: "0 auto",
     fontSize: "1rem",
     textAlign: "center",
-    backgroundColor: "#ffffff",boxShadow: "rgba(0, 0, 0, 0.2) 0px 20px 40px -1px",
+    backgroundColor: "#ffffff", boxShadow: "rgba(0, 0, 0, 0.2) 0px 20px 40px -1px",
     "&:hover": {
       backgroundColor: "#3b3680",
       color: "#ffffff"
@@ -110,6 +110,7 @@ export default function ImgMediaCard() {
           </Typography>
           <Typography variant="body2" color="textSecondary" component="span">
             <TextField
+              type="text"
               onChange={(e) => getBinding(e)}
               value={binding}
               key="firstWall"
@@ -126,6 +127,7 @@ export default function ImgMediaCard() {
               }}
             />
             <TextField
+              type="number"
               onChange={(e) => getMeasure(e)}
               value={measure}
               className={classes.margin}
@@ -142,6 +144,7 @@ export default function ImgMediaCard() {
               }}
             />
             <TextField
+              type="number"
               onChange={(e) => getThickness(e)}
               value={thickness}
               className={classes.margin}
@@ -197,13 +200,13 @@ export default function ImgMediaCard() {
       </CardActions>
     </Card>
     <Button
-    className={classes.btnBack}
-    component={Link} to="/instruments" 
-    variant="outlined"
-    color="primary"
-  >
-    Назад
-  </Button>
+      className={classes.btnBack}
+      component={Link} to="/instruments"
+      variant="outlined"
+      color="primary"
+    >
+      Назад
+    </Button>
   </>
   );
 }
