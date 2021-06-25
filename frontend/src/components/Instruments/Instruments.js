@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FullWidthGrid() {
   const classes = useStyles();
 
-  const currentDateNow = new Date();
-  const currentDate =`${currentDateNow.getFullYear()}/${currentDateNow.getMonth()}/${currentDateNow.getDay()}`
+  const currentDate = `Инструменты`
 
   return (
     <div className={classes.root}>
@@ -29,7 +28,7 @@ export default function FullWidthGrid() {
           <Paper className={classes.paper}>{currentDate}</Paper>
         </Grid>
         <Grid item xs>
-          <Paper className={classes.paper}><HomeView/></Paper>
+          <Paper className={classes.paper}><HomeView /></Paper>
         </Grid>
       </Grid>
     </div>

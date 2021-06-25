@@ -19,6 +19,9 @@ const useStyles = makeStyles(() => ({
     flexBasis: "35%",
     flexGrow: 1,
     margin: "0 1rem 0 1rem",
+    '@media screen and (max-width: 1100px)': {
+      flexBasis: "75%",
+    },
   },
   right: {
     flexBasis: "35%",
@@ -90,7 +93,7 @@ function SendProject({ stat }) {
     fetch("/engineer", {
       method: "PUT",
       headers: {
-        "Content-Type": "Application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         nameOrganization,
@@ -114,9 +117,7 @@ function SendProject({ stat }) {
       }),
     })
       .then((res) => res.json())
-
-      .then((data) => console.log(data))
-
+      .catch((err) => console.log(err))
   }
 
   useEffect(() => {
@@ -145,19 +146,19 @@ function SendProject({ stat }) {
           dataEnd[0].address ? setAddress(dataEnd[0].address) : setAddress("");
           dataEnd[0].email ? setEmail(dataEnd[0].email) : setEmail("");
           dataEnd[0].phone ? setPhone(dataEnd[0].phone) : setPhone("");
-          dataEnd[0].name?setName(dataEnd[0].name) : setName("")
-          dataEnd[0].surName?setSurName(dataEnd[0].surName) : setSurName("")
-          dataEnd[0].thirdName?setThirdName(dataEnd[0].thirdName) : setThirdName("")
-          dataEnd[0].startDate?setStartDate(dataEnd[0].startDate) : setStartDate("")
-          dataEnd[0].objectType?setObjectType(dataEnd[0].objectType) : setObjectType("")
-          dataEnd[0].wallType?setWallType(dataEnd[0].wallType) : setWallType("")
-          dataEnd[0].wallDamage?setWallDamage(dataEnd[0].wallDamage) : setWallDamage("")
-          dataEnd[0].roofDamage?setRoofDamage(dataEnd[0].roofDamage) : setRoofDamage("")
-          dataEnd[0].wallWater?setWallWater(dataEnd[0].wallWater) : setWallWater("")
-          dataEnd[0].beamWater?setBeamWater(dataEnd[0].beamWater) : setBeamWater("")
-          dataEnd[0].otherDefects?setOtherDefects(dataEnd[0].otherDefects) : setOtherDefects("")
-          dataEnd[0].recommendMonitoring?setRecommendMonitoring(dataEnd[0].recommendMonitoring) : setRecommendMonitoring("")
-          dataEnd[0].recommendGeological?setRecommendGeological(dataEnd[0].recommendGeological) : setRecommendGeological("")
+          dataEnd[0].name ? setName(dataEnd[0].name) : setName("")
+          dataEnd[0].surName ? setSurName(dataEnd[0].surName) : setSurName("")
+          dataEnd[0].thirdName ? setThirdName(dataEnd[0].thirdName) : setThirdName("")
+          dataEnd[0].startDate ? setStartDate(dataEnd[0].startDate) : setStartDate("")
+          dataEnd[0].objectType ? setObjectType(dataEnd[0].objectType) : setObjectType("")
+          dataEnd[0].wallType ? setWallType(dataEnd[0].wallType) : setWallType("")
+          dataEnd[0].wallDamage ? setWallDamage(dataEnd[0].wallDamage) : setWallDamage("")
+          dataEnd[0].roofDamage ? setRoofDamage(dataEnd[0].roofDamage) : setRoofDamage("")
+          dataEnd[0].wallWater ? setWallWater(dataEnd[0].wallWater) : setWallWater("")
+          dataEnd[0].beamWater ? setBeamWater(dataEnd[0].beamWater) : setBeamWater("")
+          dataEnd[0].otherDefects ? setOtherDefects(dataEnd[0].otherDefects) : setOtherDefects("")
+          dataEnd[0].recommendMonitoring ? setRecommendMonitoring(dataEnd[0].recommendMonitoring) : setRecommendMonitoring("")
+          dataEnd[0].recommendGeological ? setRecommendGeological(dataEnd[0].recommendGeological) : setRecommendGeological("")
         })
         .catch((err) => err)
     }
@@ -180,260 +181,260 @@ function SendProject({ stat }) {
 
   const formAddProject = useRef();
 
-  
+
 
   const inputHandlearClear = (event) => {
     event.preventDefault();
     setNameOrganization("");
-setAddress("");
-setEmail("");
-setPhone("");
-setName("")
-setSurName("")
-setThirdName("")
-setStartDate("")
-setObjectType("")
-setWallType("")
-setWallDamage("")
-setRoofDamage("")
-setWallWater("")
-setBeamWater("")
-setOtherDefects("")
-setRecommendMonitoring("")
-setRecommendGeological("")
+    setAddress("");
+    setEmail("");
+    setPhone("");
+    setName("")
+    setSurName("")
+    setThirdName("")
+    setStartDate("")
+    setObjectType("")
+    setWallType("")
+    setWallDamage("")
+    setRoofDamage("")
+    setWallWater("")
+    setBeamWater("")
+    setOtherDefects("")
+    setRecommendMonitoring("")
+    setRecommendGeological("")
   };
 
   return (<>
-      { result && 
-     <div id="sendProject" className={classes.divSendProjectMain}>
-       <header className={classes.header}>
-         <h2>Паспорт объекта</h2>
-       </header>
-      <form className={classes.row}
-         ref={formAddProject}
-       >
-         <div className={classes.row}>
-           <div className={classes.left}>
-             <Typography
-               className={classes.title}
-               variant="h5"
-               color="primary"
-               gutterBottom
-             >
-               Данные клиента
-             </Typography>
-             <TextField
-               onChange={(e) => setNameOrganization(e.target.value)}
-               value={nameOrganization}
-               className={classes.inputReact}
-               type="text"
-               name="nameOrganization"
-               id="outlined-basic7"
-               label="Организация *"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setSurName(e.target.value)}
-               value={surName}
-               className={classes.inputReact}
-               type="text"
-               name="surName"
-               id="outlined-basic1"
-               label="Фамилия"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setName(e.target.value)}
-               value={name}
-               className={classes.inputReact}
-               type="text"
-               name="name"
-               id="outlined-basic2"
-               label="Имя"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setThirdName(e.target.value)}
-               value={thirdName}
-               className={classes.inputReact}
-               type="text"
-               name="thirdName"
-               id="outlined-basic3"
-               label="Отчество"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setEmail(e.target.value)}
-               value={email}
-               className={classes.inputReact}
-               type="email"
-               name="email"
-               id="outlined-basic4"
-               label="Почта"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setPhone(e.target.value)}
-               value={phone}
-               className={classes.inputReact}
-               type="number"
-               name="phone"
-               id="outlined-basic5"
-               label="Телефон"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setAddress(e.target.value)}
-               value={address}
-               className={classes.inputReact}
-               type="text"
-               name="address"
-               id="outlined-basic6"
-               label="Адрес объекта"
-               variant="outlined"
-             />
-           </div>
+    {result &&
+      <div id="sendProject" className={classes.divSendProjectMain}>
+        <header className={classes.header}>
+          <h2>Паспорт объекта</h2>
+        </header>
+        <form className={classes.row}
+          ref={formAddProject}
+        >
+          <div className={classes.row}>
+            <div className={classes.left}>
+              <Typography
+                className={classes.title}
+                variant="h5"
+                color="primary"
+                gutterBottom
+              >
+                Данные клиента
+              </Typography>
+              <TextField
+                onChange={(e) => setNameOrganization(e.target.value)}
+                value={nameOrganization}
+                className={classes.inputReact}
+                type="text"
+                name="nameOrganization"
+                id="outlined-basic7"
+                label="Организация *"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setSurName(e.target.value)}
+                value={surName}
+                className={classes.inputReact}
+                type="text"
+                name="surName"
+                id="outlined-basic1"
+                label="Фамилия"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                className={classes.inputReact}
+                type="text"
+                name="name"
+                id="outlined-basic2"
+                label="Имя"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setThirdName(e.target.value)}
+                value={thirdName}
+                className={classes.inputReact}
+                type="text"
+                name="thirdName"
+                id="outlined-basic3"
+                label="Отчество"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                className={classes.inputReact}
+                type="email"
+                name="email"
+                id="outlined-basic4"
+                label="Почта"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                className={classes.inputReact}
+                type="number"
+                name="phone"
+                id="outlined-basic5"
+                label="Телефон"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setAddress(e.target.value)}
+                value={address}
+                className={classes.inputReact}
+                type="text"
+                name="address"
+                id="outlined-basic6"
+                label="Адрес объекта"
+                variant="outlined"
+              />
+            </div>
 
-           <div className={classes.right}>
-             {/* для менеджера */}
-             <Typography
-               className={classes.title}
-               variant="h5"
-               color="primary"
-               gutterBottom
-             >
-               Данные инженера
-             </Typography>
-             <TextField
-               onChange={(e) => setStartDate(e.target.value)}
-               value={startDate}
-               className={classes.inputReact}
-               type="date"
-               name="startDate"
-               id="outlined-basic6"
-               // label="Назначить дату обследования "
-               variant="outlined"
-             />
-             {/* <TextField className={classes.inputReact} type="text" name="executor" id="outlined-basic6" label="Назначить инженера " variant="outlined" /> */}
-             {/* для инженера */}
-             <TextField
-               onChange={(e) => setObjectType(e.target.value)}
-               value={objectType}
-               className={classes.inputReact}
-               type="text"
-               name="objectType"
-               id="outlined-basic6"
-               label="Тип объекта"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setWallType(e.target.value)}
-               value={wallType}
-               className={classes.inputReact}
-               type="text"
-               name="wallType"
-               id="outlined-basic6"
-               label="Тип стен"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setWallDamage(e.target.value)}
-               value={wallDamage}
-               className={classes.inputReact}
-               type="text"
-               name="wallDamage"
-               id="outlined-basic6"
-               label="Визуальные повреждения несущих стен"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setRoofDamage(e.target.value)}
-               value={roofDamage}
-               className={classes.inputReact}
-               type="text"
-               name="roofDamage"
-               id="outlined-basic6"
-               label="Визуальные повреждения кровли"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setWallWater(e.target.value)}
-               value={wallWater}
-               className={classes.inputReact}
-               type="text"
-               name="wallWater"
-               id="outlined-basic6"
-               label="Визуальные следы замачивания несущих стен"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setBeamWater(e.target.value)}
-               value={beamWater}
-               className={classes.inputReact}
-               type="text"
-               name="beamWater"
-               id="outlined-basic6"
-               label="Визуальные следы замачивания перекрытий"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setOtherDefects(e.target.value)}
-               value={otherDefects}
-               className={classes.inputReact}
-               type="text"
-               name="otherDefects"
-               id="outlined-basic6"
-               label="Иные дефекты"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setRecommendMonitoring(e.target.value)}
-               value={recommendMonitoring}
-               className={classes.inputReact}
-               type="text"
-               name="recommendMonitoring"
-               id="outlined-basic6"
-               label="Рекомендации установки мониторинга"
-               variant="outlined"
-             />
-             <TextField
-               onChange={(e) => setRecommendGeological(e.target.value)}
-               value={recommendGeological}
-               className={classes.inputReact}
-               type="text"
-               name="recommendGeological"
-               id="outlined-basic6"
-               label="Рекомендации геологичексих изысканий"
-               variant="outlined"
-             />
-           </div>
-         </div>
-         <div className={classes.divBtn}>
-           <Button variant="contained" onClick={saveProjectInfo} type="submit" className={classes.btn}>
-             Сохранить
-           </Button>
-           <Button variant="contained"
-             onClick={(event) => {
-               inputHandlearClear(event);
-             }}
-             className={classes.btn}
-           >
-             Очистить
-           </Button>
-           <Button variant="contained" onClick={enEnstruments} className={classes.btn}>
-             Инструменты
-           </Button>
-             <Button  className={classes.btn} variant="contained" component={Link} to="/profile" >
-               Назад в кабинет
-             </Button>
-          
-         </div>
-       </form>
+            <div className={classes.right}>
+              {/* для менеджера */}
+              <Typography
+                className={classes.title}
+                variant="h5"
+                color="primary"
+                gutterBottom
+              >
+                Данные инженера
+              </Typography>
+              <TextField
+                onChange={(e) => setStartDate(e.target.value)}
+                value={startDate}
+                className={classes.inputReact}
+                type="date"
+                name="startDate"
+                id="outlined-basic6"
+                // label="Назначить дату обследования "
+                variant="outlined"
+              />
+              {/* <TextField className={classes.inputReact} type="text" name="executor" id="outlined-basic6" label="Назначить инженера " variant="outlined" /> */}
+              {/* для инженера */}
+              <TextField
+                onChange={(e) => setObjectType(e.target.value)}
+                value={objectType}
+                className={classes.inputReact}
+                type="text"
+                name="objectType"
+                id="outlined-basic6"
+                label="Тип объекта"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setWallType(e.target.value)}
+                value={wallType}
+                className={classes.inputReact}
+                type="text"
+                name="wallType"
+                id="outlined-basic6"
+                label="Тип стен"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setWallDamage(e.target.value)}
+                value={wallDamage}
+                className={classes.inputReact}
+                type="text"
+                name="wallDamage"
+                id="outlined-basic6"
+                label="Визуальные повреждения несущих стен"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setRoofDamage(e.target.value)}
+                value={roofDamage}
+                className={classes.inputReact}
+                type="text"
+                name="roofDamage"
+                id="outlined-basic6"
+                label="Визуальные повреждения кровли"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setWallWater(e.target.value)}
+                value={wallWater}
+                className={classes.inputReact}
+                type="text"
+                name="wallWater"
+                id="outlined-basic6"
+                label="Визуальные следы замачивания несущих стен"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setBeamWater(e.target.value)}
+                value={beamWater}
+                className={classes.inputReact}
+                type="text"
+                name="beamWater"
+                id="outlined-basic6"
+                label="Визуальные следы замачивания перекрытий"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setOtherDefects(e.target.value)}
+                value={otherDefects}
+                className={classes.inputReact}
+                type="text"
+                name="otherDefects"
+                id="outlined-basic6"
+                label="Иные дефекты"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setRecommendMonitoring(e.target.value)}
+                value={recommendMonitoring}
+                className={classes.inputReact}
+                type="text"
+                name="recommendMonitoring"
+                id="outlined-basic6"
+                label="Рекомендации установки мониторинга"
+                variant="outlined"
+              />
+              <TextField
+                onChange={(e) => setRecommendGeological(e.target.value)}
+                value={recommendGeological}
+                className={classes.inputReact}
+                type="text"
+                name="recommendGeological"
+                id="outlined-basic6"
+                label="Рекомендации геологичексих изысканий"
+                variant="outlined"
+              />
+            </div>
+          </div>
+          <div className={classes.divBtn}>
+            <Button variant="contained" onClick={saveProjectInfo} type="submit" className={classes.btn}>
+              Сохранить
+            </Button>
+            <Button variant="contained"
+              onClick={(event) => {
+                inputHandlearClear(event);
+              }}
+              className={classes.btn}
+            >
+              Очистить
+            </Button>
+            <Button variant="contained" onClick={enEnstruments} className={classes.btn}>
+              Инструменты
+            </Button>
+            <Button className={classes.btn} variant="contained" component={Link} to="/profile" >
+              Назад в кабинет
+            </Button>
 
-       </div>
-   
-      }
-    </>
+          </div>
+        </form>
+
+      </div>
+
+    }
+  </>
   );
 }
 

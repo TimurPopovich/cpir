@@ -52,12 +52,25 @@ router.put("/", async (req, res) => {
       projectId2,
     } = req.body;
 
-    // let fullDate = new Date(startDate);
-    // let year = `${fullDate.getFullYear}/${fullDate.getMonth}/${fullDate.getDay}`
+    console.log(address,
+      email,
+      phone,
+      name,
+      surName,
+      thirdName,
+      startDate,
+      objectType,
+      wallType,
+      wallDamage,
+      roofDamage,
+      wallWater,
+      beamWater,
+      otherDefects,
+      recommendMonitoring,
+      recommendGeological,
+      projectId2);
 
-    // console.log(year)
-
-    await Project.findOneAndUpdate({ _id: projectId2 }, {
+    const prod = await Project.findOneAndUpdate({ _id: projectId2 }, {
       address,
       email,
       phone,
@@ -75,6 +88,8 @@ router.put("/", async (req, res) => {
       recommendMonitoring,
       recommendGeological
     })
+
+    console.log(prod);
 
     res.json('updated')
   } catch (err) {
